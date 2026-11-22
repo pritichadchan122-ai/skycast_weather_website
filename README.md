@@ -1,1 +1,0 @@
-# skycast_weather_website

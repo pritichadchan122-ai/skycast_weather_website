@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a35">
+
+  <title>AtmosphereX - Weather Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <div class="page-shell">
+
+    <header class="topbar">
+
+      <a class="brand" href="#" aria-label="AtmosphereX home">
+        <span class="brand-icon">☀</span>
+        <span>Atmosphere<span>X</span></span>
+      </a>
+
+      <div class="top-note">
+        <span class="live-dot"></span>
+        LIVE WEATHER
+      </div>
+
+    </header>
+
+    <main>
+
+      <section class="intro">
+
+        <p class="eyebrow">YOUR WEATHER, BEAUTIFULLY CLEAR</p>
+
+        <h1>
+          Know before<br>
+          <span>you go.</span>
+        </h1>
+
+        <p class="intro-copy">
+          A little sunshine, a little rain — stay one step ahead with your local forecast.
+        </p>
+
+      </section>
+
+      <section class="search-row" aria-label="Search for a city">
+
+        <div class="search-box">
+
+          <span class="search-icon">⌕</span>
+
+          <input
+            id="cityInput"
+            type="text"
+            placeholder="Search city (e.g. Mumbai)"
+            autocomplete="off"
+          >
+
+          <button id="searchBtn" class="search-button">
+            Search
+          </button>
+
+        </div>
+
+        <button
+          id="locationBtn"
+          class="location-button"
+          title="Use my current location"
+        >
+          <span>◎</span>
+          <span class="location-label">My location</span>
+        </button>
+
+      </section>
+
+      <div id="status" class="status" role="status">
+        Showing weather for Sholapur, India
+      </div>
+
+      <section class="dashboard-grid">
+
+        <!-- Current Weather Card -->
+
+        <article class="current-card glass-card">
+
+          <div class="card-topline">
+
+            <div>
+              <p class="eyebrow light">CURRENT WEATHER</p>
+
+              <h2 id="cityName">Sholapur, IN</h2>
+
+              <p id="currentDate" class="muted">
+                Loading date…
+              </p>
+            </div>
+
+            <span id="conditionPill" class="condition-pill">
+              Loading
+            </span>
+
+          </div>
+
+          <div class="current-main">
+
+            <div>
+
+              <div class="temperature">
+                <span id="temperature">--</span><sup>°C</sup>
+              </div>
+
+              <p id="conditionText" class="condition-text">
+                Getting the latest forecast
+              </p>
+
+              <p class="feels">
+                Feels like
+                <strong id="feelsLike">--°</strong>
+              </p>
+
+            </div>
+
+            <div
+              id="weatherIcon"
+              class="weather-illustration"
+              aria-hidden="true"
+            >
+              ☀️
+            </div>
+
+          </div>
+
+          <div class="current-bottom">
+
+            <div>
+              <span class="mini-icon">↗</span>
+              <span>H: <b id="highTemp">--°</b></span>
+            </div>
+
+            <div>
+              <span class="mini-icon">↘</span>
+              <span>L: <b id="lowTemp">--°</b></span>
+            </div>
+
+            <div>
+              <span class="mini-icon">☂</span>
+              <span id="rainChance">Rain --%</span>
+            </div>
+
+          </div>
+
+        </article>
+
+        <!-- Sunrise and Sunset Card -->
+
+        <article class="sun-card glass-card">
+
+          <p class="eyebrow light">SUNRISE & SUNSET</p>
+
+          <div class="sun-visual">
+
+            <span>🌅</span>
+
+            <div class="sun-arc"></div>
+
+          </div>
+
+          <div class="sun-times">
+
+            <div>
+              <span class="muted">Sunrise</span>
+              <strong id="sunrise">--:--</strong>
+            </div>
+
+            <div>
+              <span class="muted">Sunset</span>
+              <strong id="sunset">--:--</strong>
+            </div>
+
+          </div>
+
+        </article>
+
+      </section>
+
+      <!-- Today's Highlights -->
+
+      <section class="section-block">
+
+        <div class="section-heading">
+
+          <div>
+            <p class="eyebrow">AT A GLANCE</p>
+            <h2>Today's highlights</h2>
+          </div>
+
+          <span class="section-caption">
+            Updated with live data
+          </span>
+
+        </div>
+
+        <div class="metrics-grid">
+
+          <article class="metric-card">
+
+            <div class="metric-head">
+              <span>Feels like</span>
+              <span class="metric-icon">🌡️</span>
+            </div>
+
+            <strong id="metricFeels">--°</strong>
+            <small>Apparent temperature</small>
+
+          </article>
+
+          <article class="metric-card">
+
+            <div class="metric-head">
+              <span>Humidity</span>
+              <span class="metric-icon">💧</span>
+            </div>
+
+            <strong id="humidity">--%</strong>
+            <small>Relative humidity</small>
+
+          </article>
+
+          <article class="metric-card">
+
+            <div class="metric-head">
+              <span>Wind speed</span>
+              <span class="metric-icon">💨</span>
+            </div>
+
+            <strong id="wind">-- <em>km/h</em></strong>
+            <small id="windDirection">Surface wind</small>
+
+          </article>
+
+          <article class="metric-card">
+
+            <div class="metric-head">
+              <span>UV index</span>
+              <span class="metric-icon">🟠</span>
+            </div>
+
+            <strong id="uv">--</strong>
+            <small id="uvLabel">Today's UV level</small>
+
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- 7 Days Forecast -->
+
+      <section class="section-block forecast-section">
+
+        <div class="section-heading">
+
+          <div>
+            <p class="eyebrow">PLAN YOUR WEEK</p>
+            <h2>7-day forecast</h2>
+          </div>
+
+          <span class="section-caption">
+            Daily outlook
+          </span>
+
+        </div>
+
+        <div id="forecast" class="forecast-list">
+
+          <div class="forecast-loading">
+            Loading forecast…
+          </div>
+
+        </div>
+
+      </section>
+
+      <footer>
+
+        <span class="footer-brand">☀ AtmosphereX</span>
+
+        <span>
+          Weather data by Open-Meteo · Made for curious minds
+        </span>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
+s
