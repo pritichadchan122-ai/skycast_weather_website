@@ -75,7 +75,7 @@ function displayWeather(place, data) {
   $("currentDate").textContent = new Date().toDateString();
 
   $("temperature").innerHTML =
-    `${Math.round(current.temperature_2m)}<sup>°C</sup>`;
+    `${Math.round(current.temperature_2m)}`;
 
   $("conditionText").textContent =
     getWeatherText(current.weather_code);
